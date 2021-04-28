@@ -1,0 +1,28 @@
+<div class="my-nav">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-4">
+                <div class="row">
+                    <div class="col-2" style="margin-top: 20px;">
+                        <a href="/" class="nav-link nav-txt">Main</a>
+                    </div>
+                    <div class="col-2" style="margin-top: 20px;">
+                        <a href="/reviews" class="nav-link nav-txt">Reviews</a>
+                    </div>
+                </div>
+            </div>
+            <% if(my_title === 'Main'){ %>
+                <form action="/tvsearch" method="get" class="col-8">
+                        <div class="form-group row">
+                            <div class="col-6" style="margin-top: 20px;">
+                                <input type="text" class="form-control" name="tvsearch" id="tvsearch" placeholder="Search TV shows">
+                            </div>
+                            <div class="col-2" style="margin-top: 20px;">
+                                <input type="submit" value="Search" class="btn btn-light">
+                            </div>
+                        </div>
+                    </form>
+            <% } %>
+        </div>
+    </div>
+</div>

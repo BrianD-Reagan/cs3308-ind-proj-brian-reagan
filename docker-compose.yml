@@ -1,0 +1,27 @@
+services:
+    heroku-cli:
+        build: ./heroku
+        env_file: ./heroku/.env
+
+    db:
+        build: ./db
+        env_file: .env
+        volumes: 
+            - website-db:/var/lib/postgresql/data
+            - ./init_data:/docker-entrypoint-initdb.d
+
+    web:
+        build: 
+            context: ./
+            dockerfile: Dockerfile
+            target: devapp
+        depends_on:
+            - db    
+        env_file: .env
+        ports:
+            - "3000:3000" 
+        volumes:
+        - ./src:/app/src
+
+volumes:
+    website-db: {}

@@ -1,0 +1,8 @@
+DROP TABLE IF EXISTS reviews CASCADE;
+CREATE TABLE IF NOT EXISTS reviews
+(
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(50) NOT NULL,
+    review VARCHAR(200) NOT NULL,
+    review_date DATE NOT NULL
+);

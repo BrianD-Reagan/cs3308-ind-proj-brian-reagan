@@ -1,0 +1,31 @@
+.my-nav{
+    background-color: #652EB0;
+    margin-bottom: 20px;
+    height: 80px;
+}
+
+.nav-txt{
+    color: white;
+}
+
+#show-container{
+    margin-top: 10px;
+}
+
+#picture{
+    height: 500px;
+    width: auto;
+}
+
+h3{
+    margin-bottom:25px;
+}
+
+.row{
+    margin-bottom:25px;
+}
+
+a{
+    font-size: large;
+}
+

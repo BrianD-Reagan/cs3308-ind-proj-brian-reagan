@@ -1,0 +1,41 @@
+<%- include('../partials/header'); -%>
+<%- include('../partials/menu'); -%>
+
+    <h3 class="text-center">TV Show Reviews</h3>
+
+    <div class="container">
+        <form action="/reviews/filter" method="get">
+        <div class="form-group row">
+            <input type="text" class="col-sm-9 form-control" name="filter_name" id="filter_name"placeholder="Filter by show title">
+            <div class="col-sm-3">
+                <input type="submit" value="Filter" class="btn btn-primary btn-block">
+            </div>
+        </div>
+        </form>
+        <div class="row">
+            <table class="table">
+                <tr>
+                    <th>TV Show</th>
+                    <th>Review Date</th>
+                    <th>Review</th>
+                </tr>
+                <% if(reviews){ %>
+                    <% for(var i = 0; i < reviews.length ; i++) { %>
+                        <tr>
+                            <td>
+                                <%- reviews[i].title %>
+                            </td>
+                            <td>
+                                <%- reviews[i].review_date %>
+                            </td>
+                            <td>
+                                <%- reviews[i].review %>
+                            </td>
+                        </tr>
+                    <% }} %>
+            </table>
+        </div>
+    </div>
+
+
+<%- include('../partials/footer'); -%>

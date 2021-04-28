@@ -1,0 +1,27 @@
+{
+  "name": "cs3308-ind-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha ./test/server.js",
+    "start": "node server.js"
+  },
+  "author": "Brian Reagan",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "chai-http": "^4.3.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "pg-promise": "^10.10.1"
+  },
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^8.3.2",
+    "request": "^2.88.2"
+  }
+}

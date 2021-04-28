@@ -1,0 +1,84 @@
+<%- include('../partials/header'); -%>
+<%- include('../partials/menu'); -%>
+
+    <% if(!tv) { %>
+        <h3 class="text-center">What are we watchin'?</h3>
+    <% } %>
+
+    <% if(tv) { %>
+        <div class="container" id="show-container">
+            <div class="row">
+                <div class="col-6">
+                    <% if(tv.show.image.medium){ %>
+                        <img id="picture" align="right" src="<%- tv.show.image.medium %>" alt="Your show">
+                    <% }else{ %>
+                        <div class="alert alert-secondary">Image not found</div>
+                    <% } %>
+                </div>
+                <div class="col-6">
+                    <table class="table">
+                        <tr>
+                            <th>Title</th>
+                            <th><%- tv.show.name %></th>
+                        </tr>
+                        <tr>
+                            <td>Genres</td>
+                            <td>
+                                <% if(tv.show.genres.length != 0){ %>
+                                <% for(var i = 0; i < tv.show.genres.length; i++) { %>
+                                    <%- tv.show.genres[i] %>
+                                <% } } else {%>
+                                    <p>-</p>
+                                <% } %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Summary</td>
+                            <td>
+                                <% if (tv.show.summary){ %>
+                                    <%- tv.show.summary %>
+                                <% }else { %>
+                                    <p>-</p>
+                                <% } %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Average Rating</td>
+                            <td>
+                                <% if (tv.show.rating.average){ %>
+                                    <%- tv.show.rating.average %>
+                                <% }else { %>
+                                    <p>-</p>
+                                <% } %>
+                            </td>
+                        </tr>
+                    </table>
+                    <button href="#myModal" data-toggle="modal" class="btn btn-primary">Add Review</button>
+                </div>
+                <div id="myModal" class="modal fade">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Add a review for <%- tv.show.name %></h5>
+                            </div>
+                            <div class="modal-body">
+                                <form action="/reviews/addReview" method="post">
+                                
+                                    <label for="title">Title:</label>
+                                    <input type="text" class="form-control" value="<%- tv.show.name %>" name="title" readonly>
+                            
+                                    <label for="review" style="margin-top: 10px;">Your Review:</label>
+                                    <textarea name="review" class="form-control z-depth-1" id="reviewText" rows="3" placeholder="Write your review here..."></textarea>
+
+                                    <input type="submit" value="Submit" style="margin-top: 10px;" class="btn btn-primary">
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% } %>
+
+<%- include('../partials/footer'); -%>
