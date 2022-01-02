@@ -1,4 +1,4 @@
-# cs3308-ind-proj-brian-reagan
+# What Are We Watchin'
 
 A simple TV show search and review website made by myself in two weeks as a final project for Software Development Tools and Methodology (Spring 2021).
 
